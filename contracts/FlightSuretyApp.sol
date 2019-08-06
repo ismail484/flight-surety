@@ -82,7 +82,7 @@ contract FlightSuretyApp {
     }
 
     /**
-    * @dev checkong if  the timestamp is in future
+    * @dev checking if  the timestamp is in future
     */
     modifier requireIsTimestampValid(uint timestamp)
     {
@@ -146,7 +146,7 @@ contract FlightSuretyApp {
 
 
     /**
-    * @dev function to check whether the airline is registered
+    * @dev checking if the airline is registered
     */
     function isAirlineRegistered(address airline)
     public
@@ -158,7 +158,7 @@ contract FlightSuretyApp {
 
     
     /**
-    * @dev function to check whether an airline has voted for an airline
+    * @dev checking if an airline has alreaday voted for an airline
     */
     function hasAirlineVotedForRegisteringAirline(address airline, address registeringAirline)
     internal
@@ -219,7 +219,7 @@ contract FlightSuretyApp {
             if(!hasAirlineVotedForRegisteringAirline(msg.sender, airline)) {
                 setAirlineVotedForRegisteringAirline(msg.sender, airline);
                 
-                // increment the number of votes an airline has received
+                  // increment the number of votes an airline has received
                 votesPerAirline[airline] = votesPerAirline[airline] + 1;
                 if(votesPerAirline[airline] >= numberOfAirlinesRegistered.div(2)) {
                     success = flightSuretyDataContract.registerAirline(airline);

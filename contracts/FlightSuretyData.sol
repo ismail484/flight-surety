@@ -72,7 +72,7 @@ contract FlightSuretyData {
 
 
      /**
-    * @dev Modifier to check whether the caller contract is authorized
+    * @dev checking if the caller contract is authorized
     */
     modifier requireIsCallerContractAuthorized() {
         require(authorizedCallerContracts[msg.sender] == true, "Contract not authorized to call the function");
@@ -80,7 +80,7 @@ contract FlightSuretyData {
     }
 
     /**
-    * @dev check whether airline is registered
+    * @dev checking if airline is registered
     */
     modifier requireIsAirlineRegistered(address airline) {
         require(isAirlineRegistered(airline), "Airline not registered");
@@ -121,7 +121,7 @@ contract FlightSuretyData {
     }
    
     /**
-    * @dev function for app contract to check that is the airline registered
+    * @dev  checking if the airline is registered
     */
     function isAirlineRegistered(address airline)
     public
@@ -152,7 +152,7 @@ contract FlightSuretyData {
     }
 
     /**
-    * @dev check whether the passenger is insured for the flight
+    * @dev checking if  the passenger is insured for the flight
     */
     function isPassengerInsured(address airline, string flight, uint256 timestamp, address passenger)
     external
